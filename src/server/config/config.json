@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "fabio",
+    "password": "eemvc09k",
+    "database": "labfecapp",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "fabio",
+    "password": "eemvc09k",
+    "database": "labfecapp",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "fabio",
+    "password": "eemvc09k",
+    "database": "labfecapp",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

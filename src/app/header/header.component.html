@@ -12,14 +12,14 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
         <ul class="nav navbar-nav">
-          <li routerLinkActive="active"><a href="#">Produto</a></li>
+          <li routerLinkActive="active"><a [routerLink]="['/produto']">Produtos</a></li>
           <li routerLinkActive="active"><a href="#">Amostras</a></li>
-          <li routerLinkActive="active"><a href="#">Embalagens</a></li>
-          <li routerLinkActive="active"><a href="#">Lote</a></li>
+          <li routerLinkActive="active"><a [routerLink]="['/embalagem']">Embalagens</a></li>
           <li routerLinkActive="active"><a href="#">Análise</a></li>
-          <li routerLinkActive="active"><a href="#">Balança</a></li>
+          <li routerLinkActive="active"><a href="#">Calibragens</a></li>
+          <li routerLinkActive="active"><a [routerLink]="['/balanca']">Balanças</a></li>
           <li routerLinkActive="active"><a [routerLink]="['/funcionario']">Funcionários</a></li>
-          <li routerLinkActive="active"><a href="#">Cargos</a></li>
+          <li routerLinkActive="active"><a [routerLink]="['/cargo']">Cargos</a></li>
           <li routerLinkActive="active"><a href="#">Relátorios</a></li>
           <li routerLinkActive="active"><a [routerLink]="['/about']">Sobre</a></li>
         </ul>

@@ -10,6 +10,10 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { AboutComponent } from './about/about.component';
 import { FuncionarioComponent } from './funcionario/funcionario.component';
+import { CargoComponent } from './cargo/cargo.component';
+import { BalancaComponent } from './balanca/balanca.component';
+import { ProdutoComponent } from './produto/produto.component';
+import { EmbalagemComponent } from './embalagem/embalagem.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import { FuncionarioComponent } from './funcionario/funcionario.component';
     HomeComponent,
     HeaderComponent,
     AboutComponent,
-    FuncionarioComponent
+    FuncionarioComponent,
+    CargoComponent,
+    BalancaComponent,
+    ProdutoComponent,
+    EmbalagemComponent
   ],
   imports: [
     BrowserModule,

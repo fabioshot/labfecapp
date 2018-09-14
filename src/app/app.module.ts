@@ -14,6 +14,9 @@ import { CargoComponent } from './cargo/cargo.component';
 import { BalancaComponent } from './balanca/balanca.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { EmbalagemComponent } from './embalagem/embalagem.component';
+import { AmostraComponent } from './amostra/amostra.component';
+import { CalibragemComponent } from './calibragem/calibragem.component';
+import { AnalisesComponent } from './analises/analises.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { EmbalagemComponent } from './embalagem/embalagem.component';
     CargoComponent,
     BalancaComponent,
     ProdutoComponent,
-    EmbalagemComponent
+    EmbalagemComponent,
+    AmostraComponent,
+    CalibragemComponent,
+    AnalisesComponent
   ],
   imports: [
     BrowserModule,

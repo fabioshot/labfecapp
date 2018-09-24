@@ -4,7 +4,7 @@
 <section class="content">
   <section class="invoice">
 
-    <form>
+    <form #form="ngForm" novalidate>
 
       <div class="row">
         <div class="col-xs-12">
@@ -21,23 +21,23 @@
         </div>
 
         <div class="col-sm-6 col-xs-12">
-          <div class="form-group">
-            <label class="control-label" >Cargo:</label>
-            <input  type="text" class="form-control" placeholder="Cargo">
-          </div>
+          <app-input errorMessage="Campo Obrigatório" label="Cargo:" >
+            <input type="text" class="form-control" minlength="10" name="cargo" ngModel required autocomplete="off">
+          </app-input>
+
         </div>
 
-        <div class="col-sm-3 col-xs-6">
+        <div class="col-sm-3 col-xs-3">
           <div class="form-group">
             <label class="control-label esconder">&nbsp;</label>
             <button  type="button" class="form-control btn btn-info"> Limpar Campos </button>
           </div>
         </div>
 
-        <div class="col-sm-3 col-xs-6">
+        <div class="col-sm-3 col-xs-3">
           <div class="form-group">
             <label class="control-label esconder">&nbsp;</label>
-            <button type="button" class="form-control btn btn-success">Salvar Cargo</button>
+            <button type="button" class="form-control btn btn-success" [disabled]="!form.valid">Salvar Cargo</button>
           </div>
         </div>
       </div>

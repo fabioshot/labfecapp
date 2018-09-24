@@ -5,8 +5,10 @@ module.exports = (sequelize, DataTypes) => {
     funcionario_id: DataTypes.INTEGER,
     data: DataTypes.DATE,
     hora: DataTypes.TIME,
-    peso_padrao: DataTypes.DOUBLE,
-    peso_obtido: DataTypes.DOUBLE
+    peso1: DataTypes.DOUBLE,
+    peso2: DataTypes.DOUBLE
+    peso3: DataTypes.DOUBLE
+    peso4: DataTypes.DOUBLE
   }, {});
   calibragem.associate = function(models) {
     // associations can be defined here

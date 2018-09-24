@@ -30,10 +30,16 @@ module.exports = {
       hora: {
         type: Sequelize.TIME
       },
-      peso_padrao: {
+      peso1: {
         type: Sequelize.DOUBLE
       },
-      peso_obtido: {
+      peso2: {
+        type: Sequelize.DOUBLE
+      },
+      peso3: {
+        type: Sequelize.DOUBLE
+      },
+      peso4: {
         type: Sequelize.DOUBLE
       },
       createdAt: {

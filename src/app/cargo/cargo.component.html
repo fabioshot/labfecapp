@@ -4,7 +4,7 @@
 <section class="content">
   <section class="invoice">
 
-    <form #form="ngForm" novalidate>
+    <form [formGroup]="cargoForm" novalidate>
 
       <div class="row">
         <div class="col-xs-12">
@@ -22,7 +22,7 @@
 
         <div class="col-sm-6 col-xs-12">
           <app-input errorMessage="Campo Obrigatório" label="Cargo:" >
-            <input type="text" class="form-control" minlength="10" name="cargo" ngModel required autocomplete="off">
+            <input type="text" class="form-control" formControlName="descricao" autocomplete="off">
           </app-input>
 
         </div>
@@ -30,14 +30,14 @@
         <div class="col-sm-3 col-xs-3">
           <div class="form-group">
             <label class="control-label esconder">&nbsp;</label>
-            <button  type="button" class="form-control btn btn-info"> Limpar Campos </button>
+            <button  type="button" class="form-control btn btn-info" (click)="limparCampos()"><span class="fa fa-times"></span> Limpar Campos </button>
           </div>
         </div>
 
         <div class="col-sm-3 col-xs-3">
           <div class="form-group">
             <label class="control-label esconder">&nbsp;</label>
-            <button type="button" class="form-control btn btn-success" [disabled]="!form.valid">Salvar Cargo</button>
+            <button type="button" class="form-control btn btn-success" [disabled]="!cargoForm.valid" (click)="addCargo(cargoForm.value)"><span class="fa fa-floppy-o"></span> Salvar Cargo</button>
           </div>
         </div>
       </div>
@@ -47,26 +47,7 @@
           <p class="lead"></p>
         </div>
 
-        <div class="col-xs-12 table-responsive">
-
-          <table class="table table-striped ">
-            <thead>
-              <tr>
-                <th style="width:90%">Cargos</th>
-                <th style="width:10%">Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="text-center"></td>
-                  <td class="text-right" style="width:100%">
-                  <a class="btn btn-md btn-danger"><i class="fa fa-trash"></i></a>&nbsp;&nbsp;
-                  <a class="btn btn-md btn-primary"><i class="fa fa-pencil"></i></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <app-cargo-detalhes></app-cargo-detalhes>
 
       </div>
 

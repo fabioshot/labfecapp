@@ -1,10 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms'
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import {ROUTES} from './app.routes'
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -19,6 +16,14 @@ import { AmostraComponent } from './amostra/amostra.component';
 import { CalibragemComponent } from './calibragem/calibragem.component';
 import { AnalisesComponent } from './analises/analises.component';
 import { InputsComponent } from './reaproveitar/inputs/inputs.component';
+import { CargoDetalhesComponent } from './cargo/cargo-detalhes/cargo-detalhes.component';
+import { RouterModule } from '@angular/router';
+import { ROUTES } from './app.routes';
+import { LoginComponent } from './login/login.component';
+import { RelatorioComponent } from './relatorio/relatorio.component';
+import { GraphQLModule } from './graphql.module';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -34,13 +39,18 @@ import { InputsComponent } from './reaproveitar/inputs/inputs.component';
     AmostraComponent,
     CalibragemComponent,
     AnalisesComponent,
-    InputsComponent
+    InputsComponent,
+    CargoDetalhesComponent,
+    LoginComponent,
+    RelatorioComponent
   ],
   imports: [
+    RouterModule.forRoot(ROUTES),
+    GraphQLModule,
+    HttpClientModule,
     BrowserModule,
-    HttpModule,
     FormsModule,
-    RouterModule.forRoot(ROUTES)
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

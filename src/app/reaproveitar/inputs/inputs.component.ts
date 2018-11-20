@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ContentChild, AfterContentInit } from '@angular/core';
-import { NgModel} from '@angular/forms';
+import { FormControlName } from '@angular/forms'
 
 @Component({
   selector: 'app-input',
@@ -12,15 +12,15 @@ export class InputsComponent implements OnInit, AfterContentInit {
 
   input: any
 
-  @ContentChild(NgModel) model : NgModel
-
+  @ContentChild(FormControlName) control: FormControlName
   constructor() { }
 
   ngOnInit() {
+
   }
 
   ngAfterContentInit() {
-    this.input = this.model
+    this.input = this.control
     if (this.input === undefined) {
         throw new Error('Usar ngModel')
     }

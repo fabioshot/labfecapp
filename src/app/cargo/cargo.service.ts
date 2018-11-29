@@ -1,34 +1,51 @@
 import { Injectable } from '@angular/core';
 import { Apollo } from 'apollo-angular';
-import { AllCargosQueryResponse, CargoQueryResponse } from '../models/cargo.model';
-import { obterCargos, adicionarCargo } from './cargo.graphql';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { ADD_CARGO,
+         ALL_CARGOS,
+         UPDATE_CARGO,
+         REMOVE_CARGO} from './cargo.graphql';
+import { Cargo } from '../models/cargo.model';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class CargoService {
 
-    constructor( private apollo: Apollo ) { }
+  constructor( private apollo: Apollo ) { }
 
-  getCargos(): Observable<AllCargosQueryResponse> {
-    return this.apollo.watchQuery<AllCargosQueryResponse>({
-      query: obterCargos
-    }).valueChanges.pipe(map(res => res.data));
+  addCargo(cargo: Cargo) {
+    return this.apollo.mutate({
+      mutation: ADD_CARGO,
+      variables: {
+        descricao: cargo.descricao
+      },
+      refetchQueries: [{
+        query: ALL_CARGOS
+      }]
+    });
   }
 
-  addCargo( descricao: string): Observable<any> {
+  updateCargo(cargo: Cargo) {
     return this.apollo.mutate({
-      mutation: adicionarCargo,
+      mutation: UPDATE_CARGO,
       variables: {
-        descricao
+        id: cargo.id,
+        descricao: cargo.descricao
       }
-    }).pipe(map(
-      res => res.data.cargo,
-      console.log('data', descricao)
+    });
+  }
 
-    ));
+  removeCargo(cargo: Cargo) {
+    return this.apollo.mutate({
+      mutation: REMOVE_CARGO,
+      variables: {
+        id: cargo.id
+      },
+      refetchQueries: [{
+        query: ALL_CARGOS
+      }]
+    });
   }
 
 }

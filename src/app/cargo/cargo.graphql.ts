@@ -1,33 +1,40 @@
 import gql from 'graphql-tag';
 
-export const obterCargos = gql `
-query BuscarTodosCargos{
+export const ALL_CARGOS = gql`
+query cargos{
   cargos {
     id
     descricao
+    created_at
+    updated_at
   }
 }
 `;
 
-export const adicionarCargo = gql `
+export const ADD_CARGO = gql`
 mutation createCargo($descricao: String!){
   createCargo(descricao: $descricao) {
     id
     descricao
+    created_at
+    updated_at
   }
 }
 `;
 
-export const alterarCargo = gql `
-mutation updateCargo($id: Int!, $descricao: String!) {
-  updateCargo(id: $id, input: {
-      descricao: $descricao
-    }
-  )}
+export const UPDATE_CARGO = gql`
+mutation updateCargo($id: ID!, $descricao: String!) {
+  updateCargo(id: $id, descricao: $descricao){
+    id
+    descricao
+    created_at
+    updated_at
+  }
+}
 `;
 
-export const excluirCargo = gql `
-mutation deleteCargo($id: Int!){
+export const REMOVE_CARGO = gql`
+mutation deleteCargo($id: ID!){
   deleteCargo(id: $id)
 }
 `;

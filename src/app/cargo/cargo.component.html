@@ -4,7 +4,7 @@
 <section class="content">
   <section class="invoice">
 
-    <form [formGroup]="cargoForm" novalidate>
+    <form [formGroup]="cargoForm"  novalidate>
 
       <div class="row">
         <div class="col-xs-12">
@@ -37,7 +37,7 @@
         <div class="col-sm-3 col-xs-3">
           <div class="form-group">
             <label class="control-label esconder">&nbsp;</label>
-            <button type="button" class="form-control btn btn-success" [disabled]="!cargoForm.valid" (click)="addCargo(cargoForm.value)"><span class="fa fa-floppy-o"></span> Salvar Cargo</button>
+            <button type="button" class="form-control btn btn-success" [disabled]="!cargoForm.valid" (click)="onSubmit(cargoForm.value)"><span class="fa fa-floppy-o"></span> Salvar Cargo</button>
           </div>
         </div>
       </div>
@@ -47,7 +47,30 @@
           <p class="lead"></p>
         </div>
 
-        <app-cargo-detalhes></app-cargo-detalhes>
+
+        <!-- Tabela dos dados -->
+
+        <div class="col-xs-12 table-responsive">
+
+          <table class="table table-striped ">
+            <thead>
+              <tr>
+                <th style="width:80%">Cargos</th>
+                <th style="width:20%">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let cargo of cargos">
+                <td>{{ cargo.descricao }}</td>
+                <td class="text-right" style="width:100%">
+                  <a class="btn btn-md btn-danger"><i class="fa fa-trash" (click)="removeCargo(cargo)"></i></a>&nbsp;&nbsp;
+                  <a class="btn btn-md btn-primary"><i class="fa fa-pencil" (click)="selectCargo(cargo)"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
 
       </div>
 

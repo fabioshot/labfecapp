@@ -4,10 +4,10 @@ export interface Cargo {
 }
 
 
-export interface AllCargosQueryResponse {
+export interface Cargos {
   cargos: Cargo[];
 }
 
-export interface CargoQueryResponse {
+export interface OneCargo {
   cargo: Cargo;
 }

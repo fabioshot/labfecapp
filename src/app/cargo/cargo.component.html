@@ -4,7 +4,7 @@
 <section class="content">
   <section class="invoice">
 
-    <form [formGroup]="cargoForm"  novalidate>
+    <form [formGroup]="cargoForm">
 
       <div class="row">
         <div class="col-xs-12">
@@ -15,34 +15,35 @@
       </div>
 
 
-      <div class="row invoice-info">
+      <div class="row">
         <div class="col-xs-12">
           <p class="lead"></p>
         </div>
 
+
         <div class="col-sm-6 col-xs-12">
-          <app-input errorMessage="Campo Obrigatório" label="Cargo:" >
+          <app-campos errorMessage="Campo Obrigatório" label="Cargo:" >
             <input type="text" class="form-control" formControlName="descricao" autocomplete="off">
-          </app-input>
+          </app-campos>
 
         </div>
 
         <div class="col-sm-3 col-xs-3">
           <div class="form-group">
-            <label class="control-label esconder">&nbsp;</label>
+            <label class="control-label">&nbsp;</label>
             <button  type="button" class="form-control btn btn-info" (click)="limparCampos()"><span class="fa fa-times"></span> Limpar Campos </button>
           </div>
         </div>
 
         <div class="col-sm-3 col-xs-3">
           <div class="form-group">
-            <label class="control-label esconder">&nbsp;</label>
-            <button type="button" class="form-control btn btn-success" [disabled]="!cargoForm.valid" (click)="onSubmit(cargoForm.value)"><span class="fa fa-floppy-o"></span> Salvar Cargo</button>
+            <label class="control-label">&nbsp;</label>
+            <button type="button" class="form-control btn btn-success" [disabled]="!cargoForm.valid" (click)="onSubmit(cargoForm.value)"><span class="fa fa-floppy-o"></span> Salvar </button>
           </div>
         </div>
       </div>
 
-      <div class="row invoice-info">
+      <div class="row">
         <div class="col-xs-12">
           <p class="lead"></p>
         </div>
@@ -63,8 +64,9 @@
             <tr *ngFor="let cargo of cargos">
                 <td>{{ cargo.descricao }}</td>
                 <td class="text-right" style="width:100%">
-                  <a class="btn btn-md btn-danger"><i class="fa fa-trash" (click)="removeCargo(cargo)"></i></a>&nbsp;&nbsp;
-                  <a class="btn btn-md btn-primary"><i class="fa fa-pencil" (click)="selectCargo(cargo)"></i></a>
+                    <button class="btn btn-md btn-danger" (click)="removeCargo(cargo)"><i class="fa fa-trash" ></i></button>
+                    &nbsp;&nbsp;
+                    <button class="btn btn-md btn-primary" (click)="selectCargo(cargo)"><i class="fa fa-pencil"></i></button>
                 </td>
               </tr>
             </tbody>

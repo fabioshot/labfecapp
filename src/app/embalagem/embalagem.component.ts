@@ -1,10 +1,10 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { EmbalagemService } from './embalagem.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Apollo } from 'apollo-angular';
 
 import { Subscription } from 'rxjs';
 import { ALL_EMBALAGENS } from './embalagem.graphql';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-embalagem',
@@ -12,8 +12,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class EmbalagemComponent implements OnInit, OnDestroy {
 
-  @Input() id: any;
+  id: any;
   embalagens: any;
+  numeroPattern = /^[0-9]*$/;
 
   embalagemForm: FormGroup;
 
@@ -28,8 +29,8 @@ export class EmbalagemComponent implements OnInit, OnDestroy {
 
   createForm(): void {
     this.embalagemForm = this.formBuilder.group({
-      descricao: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
-      peso: this.formBuilder.control('')
+      descricao: this.formBuilder.control('', [Validators.required, Validators.minLength(7)]),
+      peso: this.formBuilder.control('', Validators.pattern(this.numeroPattern))
     });
   }
 
@@ -59,6 +60,10 @@ export class EmbalagemComponent implements OnInit, OnDestroy {
   }
 
   addEmbalagem(embalagem) {
+
+    console.log(embalagem);
+
+
     this.querySubscription = this.service.addEmbalagem(embalagem).subscribe(({ data }) => {
         console.log('data', data);
       }, (error) => {

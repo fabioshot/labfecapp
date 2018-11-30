@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
-import {Funcionario} from './funcionario.model'
-
 @Component({
-  selector: 'lab-funcionario',
+  selector: 'app-funcionario',
   templateUrl: './funcionario.component.html'
 })
 export class FuncionarioComponent implements OnInit {
 
-  constructor(){ }
+  constructor() {}
 
   ngOnInit() {
 

@@ -15,7 +15,7 @@ import { EmbalagemComponent } from './embalagem/embalagem.component';
 import { AmostraComponent } from './amostra/amostra.component';
 import { CalibragemComponent } from './calibragem/calibragem.component';
 import { AnalisesComponent } from './analises/analises.component';
-import { InputsComponent } from './reaproveitar/inputs/inputs.component';
+import { CamposComponent } from './util/campos/campos.component';
 import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { LoginComponent } from './login/login.component';
@@ -38,7 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
     AmostraComponent,
     CalibragemComponent,
     AnalisesComponent,
-    InputsComponent,
+    CamposComponent,
     LoginComponent,
     RelatorioComponent
   ],

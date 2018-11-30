@@ -3,8 +3,7 @@
 
 <section class="content">
   <section class="invoice">
-
-    <form [formGroup]="embalagemForm" novalidate>
+    <form [formGroup]="embalagemForm">
 
       <div class="row">
         <div class="col-xs-12">
@@ -14,85 +13,73 @@
         </div>
       </div>
 
-
-      <div class="row invoice-info">
+      <div class="row">
         <div class="col-xs-12">
           <p class="lead"></p>
         </div>
 
-        <div class="col-sm-6 col-xs-12">
-            <app-input errorMessage="Campo Obrigatório" label="Embalagem:" >
-              <input type="text" class="form-control" formControlName="descricao" autocomplete="off">
-            </app-input>
+        <div class="col-sm-4 col-xs-12">
+          <app-campos errorMessage="Campo Obrigatório" label="Embalagem:" >
+            <input type="text" class="form-control" formControlName="descricao" autocomplete="off">
+          </app-campos>
         </div>
 
-        <div class="col-sm-6 col-xs-12">
-            <app-input errorMessage="Campo Obrigatório" label="Peso:" >
-              <input type="text" class="form-control" formControlName="peso" autocomplete="off">
-            </app-input>
-        </div>
-      </div>
-
-
-      <div class="row invoice-info">
-        <div class="col-xs-12">
-          <p class="lead"></p>
+        <div class="col-sm-2 col-xs-12">
+          <app-campos errorMessage="Somente Números" label="Peso:" >
+            <input type="text" class="form-control" formControlName="peso" autocomplete="off">
+          </app-campos>
         </div>
 
         <div class="col-sm-3 col-xs-12">
-          <div class="form-group">
-
-          </div>
-        </div>
-
-
-        <div class="col-sm-3 col-xs-6">
           <div class="form-group">
             <label class="control-label">&nbsp;</label>
             <button  type="button" class="form-control btn btn-info" (click)="limparCampos()"> Limpar Campos </button>
           </div>
         </div>
 
-        <div class="col-sm-3 col-xs-6">
+        <div class="col-sm-3 col-xs-12">
           <div class="form-group">
-            <label class="control-label esconder">&nbsp;</label>
-            <button type="button" class="form-control btn btn-success" [disabled]="!cargoForm.valid" (click)="onSubmit(embalagemForm.value)">Salvar Embalagem</button>
+            <label class="control-label">&nbsp;</label>
+            <button  type="button" class="form-control btn btn-success" [disabled]="!embalagemForm.valid" (click)="onSubmit(embalagemForm.value)"> Salvar </button>
           </div>
         </div>
-      </div>
-
-      <div class="row invoice-info">
-        <div class="col-xs-12">
-          <p class="lead"></p>
-        </div>
-
-        <div class="col-xs-12 table-responsive">
-
-          <!-- Tabela de embalagens-->
-
-          <table class="table table-striped ">
-            <thead>
-              <tr>
-                <th style="width:50%">Embalagems</th>
-                <th style="width:40%">peso (Kg)</th>
-                <th style="width:10%">Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let embalagem of embalagens">
-                <td style="width:50%">{{ embalagem.descricao }}</td>
-                <td style="width:40%">{{ embalagem.peso }}</td>
-                <td class="text-right" style="width:10%">
-                  <a class="btn btn-md btn-danger"><i class="fa fa-trash" (click)="removeEmbalagem(embalagem)"></i></a>&nbsp;&nbsp;
-                  <a class="btn btn-md btn-primary"><i class="fa fa-pencil" (click)="selectEmbalagem(embalagem)"></i></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
 
       </div>
+
+      <div class="row">
+          <div class="col-xs-12">
+            <p class="lead"></p>
+          </div>
+
+          <div class="col-xs-12 table-responsive">
+
+            <!-- Tabela de embalagens-->
+
+            <table class="table table-striped ">
+              <thead>
+                <tr>
+                  <th style="width:50%">Embalagems</th>
+                  <th style="width:35">peso (Kg)</th>
+                  <th style="width:15%">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let embalagem of embalagens">
+                  <td style="width:50%">{{ embalagem.descricao }}</td>
+                  <td style="width:35%">{{ embalagem.peso }}</td>
+                  <td class="text-right" style="width:15%">
+                      <button class="btn btn-md btn-danger" (click)="removeEmbalagem(embalagem)"><i class="fa fa-trash" ></i></button>
+                      &nbsp;&nbsp;
+                      <button class="btn btn-md btn-primary" (click)="selectEmbalagem(embalagem)"><i class="fa fa-pencil"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
 
     </form>
+
   </section>
 </section>

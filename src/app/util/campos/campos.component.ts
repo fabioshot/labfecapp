@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, ContentChild, AfterContentInit } from '@angular/core';
-import { FormControlName } from '@angular/forms';
+import { FormControlName, NgModel } from '@angular/forms';
 
 @Component({
-  selector: 'app-input',
-  templateUrl: './inputs.component.html'
+  selector: 'app-campos',
+  templateUrl: './campos.component.html'
 })
-export class InputsComponent implements OnInit, AfterContentInit {
+export class CamposComponent implements OnInit, AfterContentInit {
 
   @Input() label: string;
   @Input() errorMessage: string;
@@ -22,9 +22,10 @@ export class InputsComponent implements OnInit, AfterContentInit {
   ngAfterContentInit() {
     this.input = this.control;
     if (this.input === undefined) {
-        throw new Error('Usar ngModel');
+      throw new Error('Esse componente precisa ser usado com uma diretiva ngModel ou formControlName')
     }
   }
+
   hasSuccess(): boolean {
     return this.input.valid && (this.input.dirty || this.input.touched);
   }

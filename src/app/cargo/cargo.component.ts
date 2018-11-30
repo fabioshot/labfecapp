@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
@@ -18,7 +18,7 @@ export class CargoComponent implements OnInit, OnDestroy {
 
   cargoForm: FormGroup;
   cargos: any;
-  @Input() id: any;
+  id: any;
 
 
   private querySubscription: Subscription;

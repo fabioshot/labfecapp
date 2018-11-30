@@ -4,7 +4,7 @@
 <section class="content">
   <section class="invoice">
 
-    <form>
+    <form [formGroup]="">
 
       <div class="row">
         <div class="col-xs-12">
@@ -18,11 +18,12 @@
         <div class="col-xs-12">
           <p class="lead"></p>
         </div>
+
         <div class="col-sm-6 col-xs-12">
           <div class="form-group">
-            <label class="control-label">Nome:</label>
-            <input type="text" class="form-control" placeholder="Nome">
-            <span class="help-block"></span>
+
+            <input type="text" class="form-control" formControlName="descricao" autocomplete="off">
+
           </div>
         </div>
 

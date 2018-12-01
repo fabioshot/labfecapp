@@ -14,7 +14,7 @@ export class EmbalagemComponent implements OnInit, OnDestroy {
 
   id: any;
   embalagens: any;
-  numeroPattern = /^[0-9]*$/;
+  numeroPattern = /^[0-9.]*$/;
 
   embalagemForm: FormGroup;
 

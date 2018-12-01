@@ -1,3 +1,4 @@
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,9 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FuncionarioComponent implements OnInit {
 
-  constructor() {}
+  funcionarioForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
 
   }
+
+  createForm(): void {
+    this.funcionarioForm = this.formBuilder.group({
+      nome: this.formBuilder.control('', [Validators.required, Validators.minLength(7)]),
+      cargo: this.formBuilder.control(''),
+      admissao: this.formBuilder.control(''),
+      status: this.formBuilder.control(''),
+      saida: this.formBuilder.control(''),
+      observacao: this.formBuilder.control(''),
+      usuario: this.formBuilder.control(''),
+      senha: this.formBuilder.control(''),
+      confirme: this.formBuilder.control(''),
+      bloqueado: this.formBuilder.control(false)
+    });
+  }
+
 }

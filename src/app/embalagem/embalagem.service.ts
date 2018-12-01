@@ -14,8 +14,8 @@ export class EmbalagemService {
     return this.apollo.mutate({
       mutation: ADD_EMBALAGEM,
       variables: {
-        descricao: embalagem.descricao,
-        peso: embalagem.peso
+        descricao:  embalagem.descricao,
+        peso: Number.parseFloat(embalagem.peso.toString())
       },
       refetchQueries: [{
         query: ALL_EMBALAGENS
@@ -29,7 +29,7 @@ export class EmbalagemService {
       variables: {
         id: embalagem.id,
         descricao: embalagem.descricao,
-        peso: embalagem.peso
+        peso: Number.parseFloat(embalagem.peso.toString())
       }
     });
   }

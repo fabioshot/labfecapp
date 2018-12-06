@@ -5,6 +5,7 @@ import { ADD_CARGO,
          UPDATE_CARGO,
          REMOVE_CARGO} from './cargo.graphql';
 import { Cargo } from '../models/cargo.model';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +47,14 @@ export class CargoService {
         query: ALL_CARGOS
       }]
     });
+  }
+
+  getCargos() {
+    return this.apollo.watchQuery<any>({
+      query: ALL_CARGOS
+    }).valueChanges.pipe(
+      map( result => result.data)
+    );
   }
 
 }

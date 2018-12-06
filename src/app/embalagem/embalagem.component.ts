@@ -1,10 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { EmbalagemService } from './embalagem.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Apollo } from 'apollo-angular';
 
 import { Subscription } from 'rxjs';
-import { ALL_EMBALAGENS } from './embalagem.graphql';
 
 @Component({
   selector: 'app-embalagem',
@@ -12,7 +10,7 @@ import { ALL_EMBALAGENS } from './embalagem.graphql';
 })
 export class EmbalagemComponent implements OnInit, OnDestroy {
 
-  id: any;
+  id: number;
   embalagens: any;
   numeroPattern = /^[0-9.]*$/;
 
@@ -20,7 +18,7 @@ export class EmbalagemComponent implements OnInit, OnDestroy {
 
   private querySubscription: Subscription;
 
-  constructor(private formBuilder: FormBuilder, private apollo: Apollo, private service: EmbalagemService) { }
+  constructor(private formBuilder: FormBuilder, private service: EmbalagemService) { }
 
   ngOnInit() {
     this.createForm();
@@ -30,15 +28,13 @@ export class EmbalagemComponent implements OnInit, OnDestroy {
   createForm(): void {
     this.embalagemForm = this.formBuilder.group({
       descricao: this.formBuilder.control('', [Validators.required, Validators.minLength(7)]),
-      peso: this.formBuilder.control('', Validators.pattern(this.numeroPattern))
+      peso: this.formBuilder.control('', [Validators.pattern(this.numeroPattern), Validators.required])
     });
   }
 
   getEmbalagens() {
-    this.querySubscription = this.apollo.watchQuery<any>({
-      query: ALL_EMBALAGENS
-    }).valueChanges
-    .subscribe(({ data }) => {
+    this.querySubscription = this.service.getEmbalagens().subscribe( ( data ) => {
+      console.log(data);
       this.embalagens = data.embalagens;
     });
   }
@@ -77,8 +73,6 @@ export class EmbalagemComponent implements OnInit, OnDestroy {
     }, (error) => {
       console.log('erro:', error);
     });
-
-  this.limparCampos();
   }
 
   removeEmbalagem(embalagem) {

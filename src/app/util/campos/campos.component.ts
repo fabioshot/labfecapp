@@ -22,7 +22,7 @@ export class CamposComponent implements OnInit, AfterContentInit {
   ngAfterContentInit() {
     this.input = this.control;
     if (this.input === undefined) {
-      throw new Error('Esse componente precisa ser usado com uma diretiva ngModel ou formControlName')
+      throw new Error('Esse componente precisa ser usado com uma diretiva ngModel ou formControlName');
     }
   }
 

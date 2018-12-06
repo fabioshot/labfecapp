@@ -1,10 +1,10 @@
-<<section class="content-header">
+<section class="content-header">
 </section>
 
 <section class="content">
   <section class="invoice">
 
-    <form>
+    <form [formGroup]="balancaForm">
 
       <div class="row">
         <div class="col-xs-12">
@@ -21,28 +21,21 @@
         </div>
 
         <div class="col-sm-6 col-xs-12">
-          <div class="form-group">
-            <label class="control-label" >Equipamento:</label>
-            <input  type="text" class="form-control" placeholder="Descrição">
-          </div>
+          <app-campos errorMessage="Campo Obrigatório" label="Equipamento:" >
+            <input type="text" class="form-control" formControlName="equipamento" autocomplete="off">
+          </app-campos>
         </div>
 
         <div class="col-sm-3 col-xs-6">
-          <div class="form-group">
-            <label class="control-label">Identificação:</label>
-            <input  type="text" class="form-control" placeholder="Identificação">
-          </div>
+          <app-campos errorMessage="Campo Obrigatório" label="Identificação: " >
+            <input type="text" class="form-control" formControlName="identificacao" autocomplete="off">
+          </app-campos>
         </div>
 
         <div class="col-sm-3 col-xs-6">
-          <div class="form-group">
-            <label class="control-label">Modelo:</label>
-            <select class="form-control" placeholder="Cargo" name="cargo">
-              <option value="Gerente Laboratório">Modelo</option>
-
-
-            </select>
-          </div>
+          <app-campos errorMessage="Campo Obrigatório" label="Modelo:" >
+            <input type="text" class="form-control" formControlName="modelo" autocomplete="off">
+          </app-campos>
         </div>
       </div>
 
@@ -51,24 +44,27 @@
           <p class="lead"></p>
         </div>
 
-        <div class="col-sm-3 col-xs-6">
-          <div class="form-group">
-
-          </div>
+        <div class="col-sm-6 col-xs-12">
+          <app-campos errorMessage="Campo Obrigatório" label="Marca:" >
+            <input type="text" class="form-control" formControlName="marca" autocomplete="off">
+          </app-campos>
         </div>
 
 
         <div class="col-sm-3 col-xs-6">
           <div class="form-group">
             <label class="control-label">&nbsp;</label>
-            <button  type="button" class="form-control btn btn-info"> Limpar Campos </button>
+            <button  type="button" class="form-control btn btn-info" (click)="limparCampos()"> Limpar Campos </button>
           </div>
         </div>
 
         <div class="col-sm-3 col-xs-6">
           <div class="form-group">
             <label class="control-label esconder">&nbsp;</label>
-            <button type="button" class="form-control btn btn-success">Salvar Balança</button>
+            <button  type="button" class="form-control btn btn-success"
+              [disabled]="!balancaForm.valid"
+              (click)="onSubmit(balancaForm.value)"> Salvar
+            </button>
           </div>
         </div>
       </div>
@@ -84,19 +80,20 @@
             <thead>
               <tr>
                 <th style="width:30%">Equipamento</th>
-                <th style="width:30%">Identificação</th>
-                <th style="width:30%">Modelo</th>
-                <th style="width:10%">Ações</th>
+                <th style="width:30%">Marca</th>
+                <th style="width:25%">Modelo</th>
+                <th style="width:15%">Ações</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="text-center" style="width:30%"></td>
-                <td class="text-center" style="width:30%"></td>
-                <td class="text-center" style="width:30%"></td>
-                <td class="text-right" style="width:10%">
-                  <a class="btn btn-md btn-danger"><i class="fa fa-trash"></i></a>&nbsp;&nbsp;
-                  <a class="btn btn-md btn-primary"><i class="fa fa-pencil"></i></a>
+              <tr *ngFor="let balanca of balancas">
+                <td style="width:30%"> {{ balanca.equipamento }} </td>
+                <td style="width:30%"> {{ balanca.marca }} </td>
+                <td style="width:25%"> {{ balanca.modelo }} </td>
+                <td class="text-right" style="width:15%">
+                    <button class="btn btn-md btn-danger" (click)="removeBalanca(balanca)"><i class="fa fa-trash" ></i></button>
+                    &nbsp;&nbsp;
+                    <button class="btn btn-md btn-primary" (click)="selectBalanca(balanca)"><i class="fa fa-pencil"></i></button>
                 </td>
               </tr>
             </tbody>

@@ -13,7 +13,7 @@ query {
 `;
 
 export const ADD_EMBALAGEM = gql`
-mutation createEmbalagem( $descricao: String!, $peso: Float ) {
+mutation createEmbalagem( $descricao: String!, $peso: Float! ) {
   createEmbalagem(descricao: $descricao, peso: $peso){
     id
     descricao
@@ -25,7 +25,7 @@ mutation createEmbalagem( $descricao: String!, $peso: Float ) {
 `;
 
 export const UPDATE_EMBALAGEM = gql`
-mutation updateEmbalagem($id: ID!, $descricao: String!, $peso: Float) {
+mutation updateEmbalagem($id: ID!, $descricao: String!, $peso: Float!) {
   updateEmbalagem(id: $id, descricao: $descricao, peso: $peso){
     id
     descricao

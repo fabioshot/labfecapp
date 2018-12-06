@@ -19,13 +19,13 @@
         </div>
 
         <div class="col-sm-4 col-xs-12">
-          <app-campos errorMessage="Campo Obrigatório" label="Embalagem:" >
+          <app-campos errorMessage="Campo obrigatório" label="Embalagem:" >
             <input type="text" class="form-control" formControlName="descricao" autocomplete="off">
           </app-campos>
         </div>
 
         <div class="col-sm-2 col-xs-12">
-          <app-campos errorMessage="Somente Números" label="Peso:" >
+          <app-campos errorMessage="Campo obrigatório e somente Números" label="Peso:" >
             <input type="text" class="form-control" formControlName="peso" autocomplete="off">
           </app-campos>
         </div>
@@ -40,7 +40,10 @@
         <div class="col-sm-3 col-xs-12">
           <div class="form-group">
             <label class="control-label">&nbsp;</label>
-            <button  type="button" class="form-control btn btn-success" [disabled]="!embalagemForm.valid" (click)="onSubmit(embalagemForm.value)"> Salvar </button>
+            <button  type="button" class="form-control btn btn-success"
+              [disabled]="!embalagemForm.valid"
+              (click)="onSubmit(embalagemForm.value)"> Salvar
+            </button>
           </div>
         </div>
 
@@ -68,9 +71,9 @@
                   <td style="width:50%">{{ embalagem.descricao }}</td>
                   <td style="width:35%">{{ embalagem.peso }}</td>
                   <td class="text-right" style="width:15%">
-                      <button class="btn btn-md btn-danger" (click)="removeEmbalagem(embalagem)"><i class="fa fa-trash" ></i></button>
-                      &nbsp;&nbsp;
-                      <button class="btn btn-md btn-primary" (click)="selectEmbalagem(embalagem)"><i class="fa fa-pencil"></i></button>
+                    <button class="btn btn-md btn-danger" (click)="removeEmbalagem(embalagem)"><i class="fa fa-trash" ></i></button>
+                    &nbsp;&nbsp;
+                    <button class="btn btn-md btn-primary" (click)="selectEmbalagem(embalagem)"><i class="fa fa-pencil"></i></button>
                   </td>
                 </tr>
               </tbody>

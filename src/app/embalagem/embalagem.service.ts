@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Embalagem } from '../models/embalagem.model';
 import { Apollo } from 'apollo-angular';
 import { ADD_EMBALAGEM, ALL_EMBALAGENS, UPDATE_EMBALAGEM, REMOVE_EMBALAGEM } from './embalagem.graphql';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +45,14 @@ export class EmbalagemService {
         query: ALL_EMBALAGENS
       }]
     });
+  }
+
+  getEmbalagens() {
+    return this.apollo.watchQuery<any>({
+      query: ALL_EMBALAGENS
+    }).valueChanges.pipe(
+      map( result => result.data)
+    );
   }
 
 }

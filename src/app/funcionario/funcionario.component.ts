@@ -1,6 +1,8 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
+
+
 @Component({
   selector: 'app-funcionario',
   templateUrl: './funcionario.component.html'
@@ -12,6 +14,8 @@ export class FuncionarioComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
+
+    this.createForm();
 
   }
 
@@ -28,6 +32,11 @@ export class FuncionarioComponent implements OnInit {
       confirme: this.formBuilder.control(''),
       bloqueado: this.formBuilder.control(false)
     });
+    this.funcionarioForm.get('saida').disable();
+    this.funcionarioForm.controls['bloqueado'].setValue(false);
+    this.funcionarioForm.get('bloqueado').disable();
   }
+
+
 
 }

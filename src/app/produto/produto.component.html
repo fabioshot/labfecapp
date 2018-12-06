@@ -4,7 +4,7 @@
 <section class="content">
   <section class="invoice">
 
-    <form>
+    <form [formGroup]="produtoForm">
 
       <div class="row">
         <div class="col-xs-12">
@@ -21,25 +21,54 @@
         </div>
 
         <div class="col-sm-6 col-xs-12">
+          <app-campos errorMessage="Campo obrigatório" label="Produto:" >
+            <input type="text" class="form-control" formControlName="descricao" autocomplete="off">
+          </app-campos>
+        </div>
+
+        <div class="col-sm-6 col-xs-12">
+          <app-campos errorMessage="Campo obrigatório" label="Embalagem:" >
+            <select class="form-control" formControlName="embalagem">
+              <option *ngFor="let embalagem of embalagens" [ngValue]="embalagem.id">
+                {{ embalagem.descricao }}
+              </option>
+            </select>
+          </app-campos>
+        </div>
+
+      </div>
+
+      <div class="row invoice-info">
+        <div class="col-xs-12">
+          <p class="lead"></p>
+        </div>
+
+        <div class="col-sm-3 col-xs-12">
+
+        </div>
+
+        <div class="col-sm-3 col-xs-12">
           <div class="form-group">
-            <label class="control-label" >Produto:</label>
-            <input  type="text" class="form-control" placeholder="Produto">
+            <label class="control-label esconder">&nbsp;</label>
+            <button  type="button" class="form-control btn btn-info" (click)="limparCampos()">
+              <span class="fa fa-times"></span> Limpar Campos
+            </button>
           </div>
         </div>
 
-        <div class="col-sm-3 col-xs-6">
+        <div class="col-sm-3 col-xs-12">
           <div class="form-group">
             <label class="control-label esconder">&nbsp;</label>
-            <button  type="button" class="form-control btn btn-info"> Limpar Campos </button>
+            <button type="button" class="form-control btn btn-success" [disabled]="!produtoForm.valid"
+              (click)="onSubmit(produtoForm.value)">
+              <span class="fa fa-floppy-o"></span> Salvar
+            </button>
           </div>
         </div>
+      </div>
 
-        <div class="col-sm-3 col-xs-6">
-          <div class="form-group">
-            <label class="control-label esconder">&nbsp;</label>
-            <button type="button" class="form-control btn btn-success">Salvar Produto</button>
-          </div>
-        </div>
+      <div class="col-sm-3 col-xs-12">
+
       </div>
 
       <div class="row invoice-info">
@@ -52,16 +81,19 @@
           <table class="table table-striped ">
             <thead>
               <tr>
-                <th style="width:90%">Produtos</th>
-                <th style="width:10%">Ações</th>
+                <th style="width:45%">Produtos</th>
+                <th style="width:40%">Embalagem</th>
+                <th style="width:15%">Ações</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="text-center" style="width:90%"></td>
-                  <td class="text-right" style="width:10%">
-                  <a class="btn btn-md btn-danger"><i class="fa fa-trash"></i></a>&nbsp;&nbsp;
-                  <a class="btn btn-md btn-primary"><i class="fa fa-pencil"></i></a>
+              <tr *ngFor="let produto of produtos">
+                <td  style="width:45%">{{ produto.descricao }}</td>
+                <td  style="width:40%">{{ produto.embalagem.descricao }}</td>
+                <td class="text-right" style="width:15%">
+                  <button class="btn btn-md btn-danger" (click)="removerProduto(produto)"><i class="fa fa-trash" ></i></button>
+                  &nbsp;&nbsp;
+                  <button class="btn btn-md btn-primary"(click)="selectProduto(produto)"><i class="fa fa-pencil"></i></button>
                 </td>
               </tr>
             </tbody>

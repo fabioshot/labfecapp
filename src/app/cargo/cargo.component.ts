@@ -2,10 +2,8 @@ import { Component, OnInit, OnDestroy} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
-
 import { CargoService } from './cargo.service';
-import { Apollo } from 'apollo-angular';
-import { ALL_CARGOS } from './cargo.graphql';
+
 
 
 
@@ -18,13 +16,13 @@ export class CargoComponent implements OnInit, OnDestroy {
 
   cargoForm: FormGroup;
   cargos: any;
-  id: any;
+  id: number;
 
 
   private querySubscription: Subscription;
 
 
-  constructor(private formBuilder: FormBuilder, private service: CargoService, private apollo: Apollo) {  }
+  constructor(private formBuilder: FormBuilder, private service: CargoService) {  }
 
   ngOnInit() {
     this.createForm();
@@ -38,10 +36,8 @@ export class CargoComponent implements OnInit, OnDestroy {
   }
 
   getCargos() {
-    this.querySubscription = this.apollo.watchQuery<any>({
-      query: ALL_CARGOS
-    }).valueChanges
-    .subscribe(({ data }) => {
+    this.querySubscription = this.service.getCargos().subscribe(( data ) => {
+      console.log(data);
       this.cargos = data.cargos;
     });
   }
@@ -63,7 +59,7 @@ export class CargoComponent implements OnInit, OnDestroy {
   }
 
   addCargo(cargo) {
-    this.querySubscription = this.service.addCargo(cargo).subscribe(({ data }) => {
+    this.querySubscription = this.service.addCargo(cargo).subscribe(( data ) => {
         console.log('data', data);
       }, (error) => {
         console.log('erro:', error);
@@ -71,7 +67,7 @@ export class CargoComponent implements OnInit, OnDestroy {
   }
 
   updateCargo(cargo) {
-    this.querySubscription = this.service.updateCargo(cargo).subscribe(({ data }) => {
+    this.querySubscription = this.service.updateCargo(cargo).subscribe(( data ) => {
       console.log('data', data);
     }, (error) => {
       console.log('erro:', error);
@@ -81,7 +77,7 @@ export class CargoComponent implements OnInit, OnDestroy {
   }
 
   removeCargo(cargo) {
-    this.querySubscription = this.service.removeCargo(cargo).subscribe(({data}) => {
+    this.querySubscription = this.service.removeCargo(cargo).subscribe(( data ) => {
       console.log('res', data);
     });
   }

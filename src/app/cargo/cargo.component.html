@@ -25,7 +25,6 @@
           <app-campos errorMessage="Campo Obrigatório" label="Cargo:" >
             <input type="text" class="form-control" formControlName="descricao" autocomplete="off">
           </app-campos>
-
         </div>
 
         <div class="col-sm-3 col-xs-3">
@@ -41,27 +40,31 @@
             <button type="button" class="form-control btn btn-success" [disabled]="!cargoForm.valid" (click)="onSubmit(cargoForm.value)"><span class="fa fa-floppy-o"></span> Salvar </button>
           </div>
         </div>
+
       </div>
+
+
 
       <div class="row">
         <div class="col-xs-12">
           <p class="lead"></p>
         </div>
 
-
         <!-- Tabela dos dados -->
 
         <div class="col-xs-12 table-responsive">
 
           <table class="table table-striped ">
+
             <thead>
               <tr>
                 <th style="width:80%">Cargos</th>
                 <th style="width:20%">Ações</th>
               </tr>
             </thead>
+
             <tbody>
-            <tr *ngFor="let cargo of cargos">
+              <tr *ngFor="let cargo of cargos">
                 <td>{{ cargo.descricao }}</td>
                 <td class="text-right" style="width:100%">
                     <button class="btn btn-md btn-danger" (click)="removeCargo(cargo)"><i class="fa fa-trash" ></i></button>

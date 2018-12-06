@@ -1,183 +1,179 @@
 <section class="content-header">
-</section>
-
-<section class="content">
-  <section class="invoice">
-
-    <form [formGroup]="">
-
-      <div class="row">
-        <div class="col-xs-12">
-          <h2 class="page-header">
-            <i class="fa fa-user"></i> Funcionários
-          </h2>
-        </div>
-      </div>
-
-      <div class="row invoice-info">
-        <div class="col-xs-12">
-          <p class="lead"></p>
-        </div>
-
-        <div class="col-sm-6 col-xs-12">
-          <app-campos errorMessage="Campo Obrigatório" label="Nome:" >
-            <input type="text" class="form-control" formControlName="nome" autocomplete="off">
-          </app-campos>
-        </div>
-
-        <div class="col-sm-3 col-xs-6">
-          <div class="form-group">
-            <label class="control-label" >Cargo:</label>
-            <select class="form-control" placeholder="Cargo" name="cargo">
-              <option value="Gerente Laboratório">Gerente Laboratório</option>
-              <option value="Laraboratorista">Laraboratorista</option>
-              <option value="Diretor">Diretor</option>
-            </select>
-            <span class="help-block"></span>
-          </div>
-        </div>
-
-        <div class="col-sm-3 col-xs-6">
-          <div class="form-group">
-            <label class="control-label ">Data Admissão:</label>
-            <input type="date" class="form-control" placeholder="Data Admissão">
-            <span class="help-block"></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="row invoice-info">
-        <div class="col-xs-12">
-          <p class="lead"></p>
-        </div>
-        <div class="col-sm-3 col-xs-12">
-          <div class="form-group">
-            <label class="control-label">Status:</label>
-            <select type="text" class="form-control" placeholder="Nome">
-              <option value="1">Admitido</option>
-              <option value="2">Desligado</option>
-            </select>
-            <span class="help-block"></span>
-          </div>
-        </div>
-        <div class="col-sm-3 col-xs-6">
-          <div class="form-group">
-            <label class="control-label">Data Saída:</label>
-            <input type="date" class="form-control" placeholder="Data Demissão">
-            <span class="help-block"></span>
-          </div>
-        </div>
-        <div class="col-sm-6 col-xs-6">
-          <div class="form-group">
-            <label class="control-label">Observações:</label>
-            <textarea rows="3" class="form-control" placeholder="Observações"></textarea>
-            <span class="help-block"></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-xs-12">
-          <h2 class="page-header">
-            <i class="fa fa-lock"></i> Usuário
-          </h2>
-        </div>
-      </div>
-
-      <div class="row invoice-info">
-        <div class="col-xs-12">
-          <p class="lead"></p>
-        </div>
-
-        <div class="col-sm-4 col-xs-12">
-          <div class="form-group">
-            <label class="control-label">Usuário:</label>
-            <input type="text" class="form-control" placeholder="Usuario">
-            <span class="help-block"></span>
-          </div>
-        </div>
-
-        <div class="col-sm-4 col-xs-6">
-          <div class="form-group">
-            <label class="control-label" >Senha:</label>
-            <input  type="password" class="form-control" placeholder="Senha">
-            <span class="help-block"></span>
-          </div>
-        </div>
-
-        <div class="col-sm-4 col-xs-6">
-          <div class="form-group">
-            <label class="control-label">Confirmação:</label>
-            <input type="password" class="form-control" placeholder="Senha">
-            <span class="help-block"></span>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="row invoice-info">
-        <div class="col-xs-12">
-          <p class="lead"></p>
-        </div>
-
-        <div class="col-sm-3 col-xs-6">
-          <div class="form-group">
-            <label class="control-label"> Usuário bloqueado:</label><br>
-            <input type="checkbox" name="Bloqueado" value="bloqueado">
-            <label class="control-label">&nbsp;&nbsp;Bloqueado</label>
-
-          </div>
-        </div>
-
-        <div class="col-sm-3 col-xs-6">
-          <div class="form-group">
-            <label class="control-label">&nbsp;</label>
-            <button  type="button" class="form-control btn btn-info"> Limpar Campos </button>
-          </div>
-        </div>
-
-        <div class="col-sm-3 col-xs-6">
-          <div class="form-group">
-            <label class="control-label">&nbsp;</label>
-            <button type="button" class="form-control btn btn-success">Salvar Funcionário</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="row invoice-info">
-        <div class="col-xs-12">
-          <p class="lead"></p>
-        </div>
-
-        <div class="col-xs-12 table-responsive">
-
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Nome</th>
-                <th>Usuário</th>
-                <th>Cargo</th>
-                <th>Status</th>
-                <th style="width:10%">Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="text-center" style="width:30%"></td>
-                <td class="text-center" style="width:20%"></td>
-                <td class="text-center" style="width:20%"></td>
-                <td class="text-center" style="width:15%"></td>
-                <td class="text-center" style="width:15%">
-                  <a class="btn btn-md btn-danger"><i class="fa fa-trash"></i></a>&nbsp;&nbsp;
-                  <a class="btn btn-md btn-primary"><i class="fa fa-pencil"></i></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-      </div>
-
-    </form>
   </section>
-</section>
+
+  <section class="content">
+    <section class="invoice">
+
+      <form [formGroup]="funcionarioForm">
+
+        <div class="row">
+          <div class="col-xs-12">
+            <h2 class="page-header">
+              <i class="fa fa-user"></i> Funcionários
+            </h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <p class="lead"></p>
+          </div>
+
+          <div class="col-sm-6 col-xs-12">
+            <app-campos errorMessage="Campo Obrigatório" label="Nome:" >
+              <input type="text" class="form-control" formControlName="nome" autocomplete="off">
+            </app-campos>
+          </div>
+
+          <div class="col-sm-3 col-xs-12">
+            <app-campos errorMessage="Campo Obrigatório" label="Cargo:">
+              <select class="form-control" formControlName="cargo" autocomplete="off">
+                <option value="Gerente Laboratório">Gerente Laboratório</option>
+                <option value="Laraboratorista">Laraboratorista</option>
+              </select>
+            </app-campos>
+          </div>
+
+          <div class="col-sm-3 col-xs-12">
+            <app-campos errorMessage="Campo Obrigatório" label="Data de Admissão:">
+              <input type="date" class="form-control" formControlName="admissao" autocomplete="off">
+            </app-campos>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <p class="lead"></p>
+          </div>
+
+          <div class="col-sm-3 col-xs-12">
+            <app-campos errorMessage="Campo Obrigatório" label="Status:">
+              <select type="text" class="form-control" formControlName="status" autocomplete="off">
+                <option value="true">Admitido</option>
+                <option value="false">Desligado</option>
+              </select>
+            </app-campos>
+          </div>
+
+          <div class="col-sm-3 col-xs-12">
+            <app-campos label="Data de Demissão:">
+              <input type="date" class="form-control" formControlName="saida">
+            </app-campos>
+          </div>
+
+          <div class="col-sm-6 col-xs-12">
+            <app-campos label="Observações:">
+              <textarea rows="3" class="form-control" formControlName="observacao" autocomplete="off"></textarea>
+            </app-campos>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <h2 class="page-header">
+              <i class="fa fa-lock"></i> Usuário
+            </h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <p class="lead"></p>
+          </div>
+
+          <div class="col-sm-3 col-xs-12">
+            <app-campos errorMessage="Campo Obrigatório" label="Usuário:">
+              <input type="text" class="form-control" formControlName="usuario" autocomplete="off">
+            </app-campos>
+          </div>
+
+          <div class="col-sm-3 col-xs-12">
+            <app-campos errorMessage="Campo obrigatório e no minimo 5 caracteres" label="Senha:">
+              <input  type="password" class="form-control" formControlName="senha" autocomplete="off">
+            </app-campos>
+          </div>
+
+          <div class="col-sm-3 col-xs-12">
+            <app-campos errorMessage="Campo obrigatório e no minimo 5 caracteres" label="Confirme a Senha:">
+              <input type="password" class="form-control" formControlName="confirme" autocomplete="off">
+            </app-campos>
+          </div>
+
+          <div class="col-sm-3 col-xs-6">
+            <app-campos label="Bloquear Usuario:">
+              <input type="checkbox" class="checkbox" formControlName="bloqueado" > Bloquear?
+            </app-campos>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <p class="lead"></p>
+          </div>
+
+          <div class="col-sm-3 col-xs-6">
+            <div class="form-group">
+              <label class="control-label">&nbsp;</label>
+              <button  type="button" class="form-control btn btn-info"> Limpar Campos </button>
+            </div>
+          </div>
+
+          <div class="col-sm-3 col-xs-6">
+            <div class="form-group">
+              <label class="control-label">&nbsp;</label>
+              <button type="button" class="form-control btn btn-primary">Alterar Senha</button>
+            </div>
+          </div>
+
+          <div class="col-sm-3 col-xs-6"></div>
+
+          <div class="col-sm-3 col-xs-6">
+            <div class="form-group">
+              <label class="control-label">&nbsp;</label>
+              <button type="button" class="form-control btn btn-success">Salvar Funcionário</button>
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <p class="lead"></p>
+          </div>
+
+          <div class="col-xs-12 table-responsive">
+
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Usuário</th>
+                  <th>Cargo</th>
+                  <th>Status</th>
+                  <th style="width:10%">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center" style="width:30%"></td>
+                  <td class="text-center" style="width:20%"></td>
+                  <td class="text-center" style="width:20%"></td>
+                  <td class="text-center" style="width:15%"></td>
+                  <td class="text-center" style="width:15%">
+                    <a class="btn btn-md btn-danger"><i class="fa fa-trash"></i></a>&nbsp;&nbsp;
+                    <a class="btn btn-md btn-primary"><i class="fa fa-pencil"></i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+      </form>
+    </section>
+  </section>
